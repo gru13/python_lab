@@ -1,17 +1,11 @@
-a = 1
-b = 2
+def bitwise_addition(a, b):
+    while b != 0:
+        carry = a & b
+        a = a ^ b
+        b = carry << 1  # Shift carry to the left by 1
+    return a
 
-carry = 0
-
-a = str(bin(a))[2:][::-1]
-b = str(bin(b))[2:][::-1]
-
-result = ""
-
-while not(len(a) and len(b)):
-    i = int(a.pop(0)) 
-    j = int(a.pop(0)) 
-
-    sum_ = i ^ j 
-    carry = i & 
-print(a,b)
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+result = bitwise_addition(num1, num2)
+print("Bitwise addition:", result)
